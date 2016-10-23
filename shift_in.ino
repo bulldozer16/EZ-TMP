@@ -33,9 +33,9 @@ int SH_LD = 8;    // Shift/Load
 int DATA = 9;     // Data
 
 /* ========== Variables ========== */
-byte value = 0;   // Contiene el valor final 
-int tmp = 0;      // Contiene cada bit que se obtiene de manera serial
-String msg = "";  // Mensaje a imprimir
+byte value = 0;         // Contiene el valor final 
+int tmp = 0;            // Contiene cada bit que se obtiene de manera serial
+float temperature = 0;  // Temperatura que será leída y desplegada por la interfaz en Processing
 
 void setup() 
 {
@@ -99,51 +99,50 @@ void loop()
   {
     case 0:
     {
-      msg = "Temperature over 45 degrees Celsius";
+      temperature = 47.5;
       break;
     }
     case 1:
     {
-      msg = "Temperature between 40 and 45 degrees Celsius";
+      temperature = 42.5;
       break;
     }
     case 2:
     {
-      msg = "Temperature between 35 and 40 degrees Celsius";
+      temperature = 37.5;
       break;
     }
     case 3:
     {
-      msg = "Temperature between 30 and 35 degrees Celsius";
+      temperature = 32.5;
       break;
     }
     case 4:
     {
-      msg = "Temperature between 25 and 30 degrees Celsius";
+      temperature = 27.5;
       break;
     }
     case 5:
     {
-      msg = "Temperature between 20 and 25 degrees Celsius";
+      temperature = 22.5;
       break;
     }
     case 6:
     {
-      msg = "Temperature between 15 and 20 degrees Celsius";
+      temperature = 17.5;
       break;
     }
     case 7:
     {
-      msg = "Temperature below 15 degrees Celsius";
+      temperature = 7.5;
       break;
     }
   }
 
   /* Se imprime el mensaje y se reinicia el valor a 0 */
-  Serial.println(msg);
-  Serial.println("==============");
+  Serial.println(temperature);
   value = 0;
    
-  delay(500);
+  delay(100);
 }
  
