@@ -50,7 +50,11 @@ void setup()
 
 void loop() 
 {
-  /* Ambos pines en HIGH permiten la carga paralela al registro */
+  /*
+   * CL_INH en HIGH permiten la carga paralela al registro.
+   * SH_LD inicia en HIGH para luego iniciar la carga paralela.
+   * La carga paralela se hace en la transición de LOW a HIGH.
+   */
   digitalWrite(CLK_INH, HIGH);
   digitalWrite(SH_LD, HIGH);  
 
@@ -62,7 +66,7 @@ void loop()
   delay(20);
 
   /*
-   * La carga paralela se da en la transición de LOW a HIGH del pin SH_LD
+   * La carga paralela se da en la transición de LOW a HIGH del pin SH_LD.
    * Para obtener la salida de manera serial se mantiene SH_LD en HIGH y
    * CLK_INH en LOW.
    */
@@ -72,7 +76,7 @@ void loop()
   delay(20);
 
   /* 
-   * Ciclo que obtiene los 3 bits y forma el valor final  
+   * Ciclo que obtiene los 3 bits y forma el valor final.
    * En la transición de LOW a HIGH del reloj el siguiente valor se 
    * desplaza a la salida.
    */
